@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "daylight-330b4",
+          "appId": "1:829329201424:android:ec9253c62cc388ff8b2d95",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "daylight-330b4",
+          "configurations": {
+            "android": "1:829329201424:android:ec9253c62cc388ff8b2d95",
+            "web": "1:829329201424:web:34244186f59aec688b2d95"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
