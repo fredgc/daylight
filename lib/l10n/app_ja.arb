@@ -1,0 +1,19 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Daylight 太陽時時計",
+  "clockFaceSemantics": "Daylight 太陽時計の文字盤",
+  "closeButtonLabel": "閉じる",
+  "dateTimeHint": "日付/時刻",
+  "incrementSpeedHint": "速度増加",
+  "languageAuto": "自動",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "位置",
+  "privacyPolicyTitle": "プライバシーポリシー",
+  "switchLanguageTooltip": "言語を切り替える",
+  "termsOfServiceTitle": "利用規約",
+  "transportTooltip": "トランスポート",
+  "unknownLocation": "不明な位置",
+  "viewPrivacyPolicyTooltip": "プライバシーポリシーを表示",
+  "viewTermsTooltip": "利用規約を表示"
+}

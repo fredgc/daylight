@@ -1,0 +1,19 @@
+{
+  "@@locale": "zh",
+  "appTitle": "Daylight 本地太阳时",
+  "clockFaceSemantics": "Daylight 太阳表盘",
+  "closeButtonLabel": "关闭",
+  "dateTimeHint": "日期/时间",
+  "incrementSpeedHint": "递增速度",
+  "languageAuto": "自动",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "位置",
+  "privacyPolicyTitle": "隐私政策",
+  "switchLanguageTooltip": "切换语言",
+  "termsOfServiceTitle": "服务条款",
+  "transportTooltip": "传输",
+  "unknownLocation": "未知位置",
+  "viewPrivacyPolicyTooltip": "查看隐私政策",
+  "viewTermsTooltip": "查看服务条款"
+}

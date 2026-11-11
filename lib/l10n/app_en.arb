@@ -1,0 +1,67 @@
+{
+  "@@locale": "en",
+  "appTitle": "Daylight Local Time",
+  "@appTitle": {
+    "description": "The title of the application displayed in the app bar and window title"
+  },
+  "clockFaceSemantics": "Daylight solar clock face",
+  "@clockFaceSemantics": {
+    "description": "Accessibility semantic label for the main analog clock face"
+  },
+  "closeButtonLabel": "Close",
+  "@closeButtonLabel": {
+    "description": "Button label to close a dialog"
+  },
+  "dateTimeHint": "Date/Time",
+  "@dateTimeHint": {
+    "description": "Placeholder hint text for the debug date/time input field"
+  },
+  "incrementSpeedHint": "Increment Speed",
+  "@incrementSpeedHint": {
+    "description": "Placeholder hint text for the debug increment speed input field"
+  },
+  "languageAuto": "Auto",
+  "@languageAuto": {
+    "description": "Label for system default language selection"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "Label for English language selection"
+  },
+  "languageSpanish": "Español",
+  "@languageSpanish": {
+    "description": "Label for Spanish language selection"
+  },
+  "locationHint": "Location",
+  "@locationHint": {
+    "description": "Placeholder hint text for the debug location input field"
+  },
+  "privacyPolicyTitle": "Privacy Policy",
+  "@privacyPolicyTitle": {
+    "description": "Title for the Privacy Policy dialog"
+  },
+  "switchLanguageTooltip": "Switch language",
+  "@switchLanguageTooltip": {
+    "description": "Accessibility tooltip for the language selector menu button"
+  },
+  "termsOfServiceTitle": "Terms of Service",
+  "@termsOfServiceTitle": {
+    "description": "Title for the Terms of Service dialog"
+  },
+  "transportTooltip": "Transport",
+  "@transportTooltip": {
+    "description": "Accessibility tooltip for the transport action button"
+  },
+  "unknownLocation": "Unknown location",
+  "@unknownLocation": {
+    "description": "Display text when location coordinates are not available"
+  },
+  "viewPrivacyPolicyTooltip": "View Privacy Policy",
+  "@viewPrivacyPolicyTooltip": {
+    "description": "Accessibility tooltip for viewing the privacy policy"
+  },
+  "viewTermsTooltip": "View Terms of Service",
+  "@viewTermsTooltip": {
+    "description": "Accessibility tooltip for viewing the terms of service"
+  }
+}

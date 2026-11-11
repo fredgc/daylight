@@ -1,0 +1,19 @@
+{
+  "@@locale": "lt",
+  "appTitle": "Daylight vietinis saulės laikas",
+  "clockFaceSemantics": "Daylight saulės laikrodžio ciferblatas",
+  "closeButtonLabel": "Uždaryti",
+  "dateTimeHint": "Data / Laikas",
+  "incrementSpeedHint": "Didinimo greitis",
+  "languageAuto": "Automatinis",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "Vieta",
+  "privacyPolicyTitle": "Privatumo politika",
+  "switchLanguageTooltip": "Keisti kalbą",
+  "termsOfServiceTitle": "Paslaugų teikimo sąlygos",
+  "transportTooltip": "Perkelti",
+  "unknownLocation": "Nežinoma vieta",
+  "viewPrivacyPolicyTooltip": "Peržiūrėti privatumo politiką",
+  "viewTermsTooltip": "Peržiūrėti paslaugų teikimo sąlygas"
+}

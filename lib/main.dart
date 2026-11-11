@@ -13,36 +13,67 @@
 // limitations under the License.
 
 import 'dart:async';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:firebase_core/firebase_core.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'firebase_options.dart';
-
 import 'clock.dart';
+import 'l10n/l10n_extension.dart';
+import 'web_cache.dart';
 
-void main() {
-  // We don't really use this, but maybe it's needed for analytics?
-  Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb) {
+    unawaited(() async {
+      try {
+        final info = await PackageInfo.fromPlatform();
+        final ver = info.buildNumber.isNotEmpty
+            ? '${info.version}+${info.buildNumber}'
+            : info.version;
+        await checkServerVersionAndReload(ver);
+      } catch (_) {}
+    }());
+  }
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (_) {}
+  await LocaleController.initialize();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Daylight Local Time',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const LocalClock(),
+    return ValueListenableBuilder<Locale?>(
+      valueListenable: LocaleController.currentLocale,
+      builder: (context, locale, _) {
+        return MaterialApp(
+          locale: locale,
+          localeResolutionCallback: (deviceLocale, supportedLocales) {
+            if (deviceLocale != null) {
+              for (final supported in supportedLocales) {
+                if (supported.languageCode == deviceLocale.languageCode) {
+                  return supported;
+                }
+              }
+            }
+            return const Locale('en');
+          },
+          onGenerateTitle: (context) => context.l10n.appTitle,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: const LocalClock(),
+        );
+      },
     );
   }
 }
-
