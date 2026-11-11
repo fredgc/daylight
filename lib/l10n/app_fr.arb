@@ -1,0 +1,19 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Daylight - Heure solaire locale",
+  "clockFaceSemantics": "Cadran solaire Daylight",
+  "closeButtonLabel": "Fermer",
+  "dateTimeHint": "Date/Heure",
+  "incrementSpeedHint": "Vitesse d'incrémentation",
+  "languageAuto": "Automatique",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "Emplacement",
+  "privacyPolicyTitle": "Politique de confidentialité",
+  "switchLanguageTooltip": "Changer de langue",
+  "termsOfServiceTitle": "Conditions d'utilisation",
+  "transportTooltip": "Transporter",
+  "unknownLocation": "Emplacement inconnu",
+  "viewPrivacyPolicyTooltip": "Afficher la politique de confidentialité",
+  "viewTermsTooltip": "Afficher les conditions d'utilisation"
+}

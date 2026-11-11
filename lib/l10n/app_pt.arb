@@ -1,0 +1,19 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Daylight - Hora solar local",
+  "clockFaceSemantics": "Mostrador do relógio solar Daylight",
+  "closeButtonLabel": "Fechar",
+  "dateTimeHint": "Data/Hora",
+  "incrementSpeedHint": "Velocidade de incremento",
+  "languageAuto": "Automático",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "Localização",
+  "privacyPolicyTitle": "Política de Privacidade",
+  "switchLanguageTooltip": "Alterar idioma",
+  "termsOfServiceTitle": "Termos de Serviço",
+  "transportTooltip": "Transportar",
+  "unknownLocation": "Localização desconhecida",
+  "viewPrivacyPolicyTooltip": "Ver Política de Privacidade",
+  "viewTermsTooltip": "Ver Termos de Serviço"
+}

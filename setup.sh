@@ -18,15 +18,17 @@ if [ -z "$workspace" ]; then
   export workspace=`sawfish-client -e current-workspace`
 fi
 
+export FLUTTER_PORT=$(find-port.py)
+echo "Using port $FLUTTER_PORT"
+
 export USE_DESKTOP=$workspace
-emacs-maybe-client -n -2 README.md lib/main.dart
+emacs-maybe-client -n -3 README.md lib/main.dart
 
-chrome-hot-key -w $workspace -g 1700x1000+0+375 9 "http://localhost:5000/#/"
+chrome-hot-key -n personal -w $workspace -g 1200x1000+0+50 9 "http://localhost:$FLUTTER_PORT"
 
-chrome-hot-key -w $workspace -g +0+26 5 "https://flutter.dev/docs/get-started/codelab"
-chrome-hot-key -w $workspace -g +0+26 6 "https://docs.flame-engine.org/latest/flame/flame.html"
+chrome-hot-key -n personal -w $workspace -g 980x1010-1+30 0 \
+ "https://console.firebase.google.com/project/daylight-330b4/overview"
 
-chrome-hot-key -w $workspace -g +0+26 7 "https://launch.corp.google.com/launch/4324285"
-
-chrome-hot-key -w $workspace -g +0+26 8 "https://g3doc.corp.google.com/company/users/mbrukman/howto/oss-releasing-speedrun.md?cl=head"
+chrome-hot-key -n personal -w $workspace -g 950x1000+100+30 t \
+  "https://docs.google.com/document/d/19ESr9TL-pdcFNEsN7CH6jGBd29GVWtpy7y3GxRuSSrI/edit?tab=t.6sbpp9pn0tx8"
 

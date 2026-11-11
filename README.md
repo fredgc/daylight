@@ -1,27 +1,117 @@
 # Daylight Local Time
 
-This project creates a clock using the Daylight Local Time zone.
+An interactive Flutter clock application that displays solar time and daylight
+hours based on exact geographical coordinates.
 
-As a Dart / Flutter project, it has two interesting things:
+* **Live Web App**: [daylight.gchouse.org](https://daylight.gchouse.org)
 
-1. It uses the package location.dart to get the users location. For this reason,
-   it has to ask for some special permissions.
+* **Android Package**: `org.gchouse.daylight`
 
-2. It uses flutter_analog_clock.dart to draw a clock. However, since our clock
-   does not move the second hand at the same rate as a normal clock, we have to
-   set the normal clock's second hand length to zero, and then use some stacking
-   widgets to draw our own second hand.
+---
+
+## Documentation
+
+In-depth documentation and policies are located in `doc/`:
+
+* [doc/privacy.md](doc/privacy.md) : Privacy policy detailing location
+  permission usage and local storage.
+
+* [doc/terms.md](doc/terms.md) : Terms of service.
+
+---
+
+## Core Features
+
+* **Local Solar Time**: Calculates local time from geographic longitude rather
+  than political time zone boundaries.
+
+* **Variable Second Rates**: Animates custom clock hands calibrated to local
+  daylight progression.
+
+* **Location Permissions**: Requests browser or device location permissions
+  with fallback to manual coordinate inputs.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* [Flutter SDK](https://docs.flutter.dev/get-started/install) (3.24+
+  recommended)
+
+* `make` and [Pandoc](https://pandoc.org/) (for compiling documentation)
+
+### Forking and Cloning
+
+1. Fork the repository on GitHub to your account.
+
+2. Clone your fork locally:
+
+   ```bash
+   git clone https://github.com/<your-username>/daylight.git
+   cd daylight
+   ```
+
+3. Install Flutter dependencies:
+
+   ```bash
+   flutter pub get
+   ```
+
+4. Build documentation assets:
+
+   ```bash
+   make docs
+   ```
+
+### Running Locally
+
+To launch the web app in Chrome:
+
+```bash
+flutter run -d chrome
+```
+
+To run on a connected Android device or emulator:
+
+```bash
+flutter run -d android
+```
+
+### Running Tests
+
+Execute the unit and widget test suite:
+
+```bash
+flutter test
+```
+
+### Building Releases
+
+Use the provided `Makefile` to generate release assets:
+
+```bash
+make build_all
+```
+
+---
 
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
+---
+
 ## License
 
-Apache 2.0; see [`LICENSE`](LICENSE) for details.
+This project is open-source and licensed under the
+[Apache 2.0 License](LICENSE) .
+
+---
 
 ## Disclaimer
 
-This project is not an official Google project. It is not supported by
-Google and Google specifically disclaims all warranties as to its quality,
+This project is not an official Google project. It is not supported by Google
+and Google specifically disclaims all warranties as to its quality,
 merchantability, or fitness for a particular purpose.

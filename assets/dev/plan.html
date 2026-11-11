@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>plan</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/doc_style.css" />
+</head>
+<body>
+<h1 id="daylight-local-time-plan">Daylight Local Time Plan</h1>
+<p>This document outlines the strategic roadmap, mathematical
+foundations, and milestones for the <strong>Daylight Local Time</strong>
+project.</p>
+<blockquote>
+<p><strong>Note</strong>: Active day-to-day tasks and issue tracking are
+managed dynamically using <code>~/bin/todo.py</code>. Run
+<code>~/bin/todo.py list</code> to view active tasks.</p>
+</blockquote>
+<hr />
+<h2 id="astronomical-time-calculation-physics">1. Astronomical Time
+Calculation &amp; Physics</h2>
+<ul>
+<li><p><strong>True Solar Time vs Mean Solar Time</strong>: Incorporate
+the equation of time (orbital eccentricity and axial obliquity) to
+accurately compute true local solar noon based on geographic
+longitude.</p></li>
+<li><p><strong>Variable Second Rates</strong>: Dynamically calculate
+local daylight hours between sunrise and sunset, adjusting daylight
+seconds so 12 daylight hours divide solar daytime proportionally
+throughout the year.</p></li>
+</ul>
+<hr />
+<h2 id="clock-face-ui-rendering">2. Clock Face &amp; UI Rendering</h2>
+<ul>
+<li><p><strong>Custom Vector Clock Face</strong>: Replace third-party
+widget dependencies with a custom <code>CustomPainter</code> clock face
+supporting:</p>
+<ul>
+<li><p>Custom dial markers and numerical typography.</p></li>
+<li><p>Distinctive hour, minute, and daylight second hands.</p></li>
+<li><p>Embedded solar position / elevation indicators.</p></li>
+</ul></li>
+<li><p><strong>Responsive Sizing &amp; Dark Mode</strong>: Implement
+responsive scaling for mobile screens and support dark mode
+themes.</p></li>
+</ul>
+<hr />
+<h2 id="platform-distribution-android-package">3. Platform Distribution
+&amp; Android Package</h2>
+<ul>
+<li><p>Package Android APK and deploy to Google Play
+(<code>org.gchouse.daylight</code>).</p></li>
+<li><p>Test GPS permissions and location fallback flows across Android
+versions.</p></li>
+</ul>
+<hr />
+<h2 id="visual-accessibility-verification-checklist">4. Visual &amp;
+Accessibility Verification Checklist</h2>
+<p>Perform these manual checks across supported locales
+(<code>en</code>, <code>es</code>, <code>de</code>, <code>fr</code>,
+<code>ja</code>, <code>lt</code>, <code>pt</code>, <code>zh</code>) on
+mobile and desktop viewports:</p>
+<ul>
+<li><p><strong>Clock Dial &amp; Solar Arcs</strong>:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />Verify the Daylight Local Time
+clock dial, sunrise/sunset arcs, and twilight shading render accurately
+in both light and dark themes.</label></p></li>
+<li><p><label><input type="checkbox" />Verify the clock hands (hour,
+minute, solar position) rotate smoothly and do not obscure numeric
+markings.</label></p></li>
+</ul></li>
+<li><p><strong>Date, Time &amp; Location Controls</strong>:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />Test the date picker, timezone
+selector, and latitude/longitude inputs to ensure text fields and labels
+do not clip in longer languages.</label></p></li>
+<li><p><label><input type="checkbox" />Confirm that GPS permission
+requests and location fallback dialogs display translated strings for
+all supported languages.</label></p></li>
+</ul></li>
+<li><p><strong>Language Menu &amp; Settings</strong>:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />Switch to each language from the
+top bar language menu and confirm all UI labels, clock metrics, and
+dialog titles update immediately.</label></p></li>
+<li><p><label><input type="checkbox" />Switch to <strong>Auto</strong>
+and verify the app reverts cleanly to the system default
+locale.</label></p></li>
+</ul></li>
+<li><p><strong>Touch Targets &amp; Screen Readers</strong>:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" />Verify date/time buttons, search
+triggers, and settings icons meet the 48x48 dp minimum touch target
+requirement on mobile devices.</label></p></li>
+<li><p><label><input type="checkbox" />Enable TalkBack (Android) or
+VoiceOver (iOS/macOS) and confirm that the current daylight time and
+solar events are announced clearly.</label></p></li>
+</ul></li>
+</ul>
+</body>
+</html>

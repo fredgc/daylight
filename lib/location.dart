@@ -20,7 +20,7 @@ class LocalLocation {
   double latitude = 0.0;
   double longitude = 0.0;
 
-  Location location = new Location();
+  Location location = Location();
   StreamSubscription? listener;
   bool valid = false;
   bool auto_update = true;
@@ -45,18 +45,18 @@ class LocalLocation {
     auto_update = true;
 
     await listener?.cancel();
-    location = new Location();
+    location = Location();
     listener = location.onLocationChanged.listen((LocationData data) {
-        print("Location updated via listener! data = $data");
-        update(data);
+      print("Location updated via listener! data = $data");
+      update(data);
     });
 
     print("Checking service.");
-    bool service_enabled = await location.serviceEnabled();
-    if (!service_enabled) {
+    bool serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
       print("Service is not enabled. Requesting it.");
-      service_enabled = await location.requestService();
-      if (!service_enabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
         print("ERROR: service is still not enabled.");
         return;
       }
@@ -80,10 +80,11 @@ class LocalLocation {
   }
 
   // Convert the location to a string, for display or debug.
+  @override
   String toString() {
     if (valid) {
       return "(${latitude.toStringAsFixed(2)}, "
-      +"${longitude.toStringAsFixed(2)})";
+          "${longitude.toStringAsFixed(2)})";
     }
     return "<unknown location>";
   }
@@ -91,17 +92,17 @@ class LocalLocation {
   // Parse the string into a location, for debugging.
   // Also, turn off auto update.
   // Might throw a Parse exception.
-  void transport(String location_string) {
+  void transport(String locationString) {
     auto_update = false;
     // Trim off extra characters (whitespace and parentheses), and
     // split by the comma.
-    location_string = location_string.replaceAll(' ', '');
-    location_string = location_string.replaceAll('(', '');
-    location_string = location_string.replaceAll(')', '');
-    List<String> vals = location_string.split(',');
-    print("split $location_string to $vals");
+    locationString = locationString.replaceAll(' ', '');
+    locationString = locationString.replaceAll('(', '');
+    locationString = locationString.replaceAll(')', '');
+    List<String> vals = locationString.split(',');
+    print("split $locationString to $vals");
     if (vals.length != 2) {
-      throw Exception("Location ($location_string) should have one comma.");
+      throw Exception("Location ($locationString) should have one comma.");
     }
     latitude = double.parse(vals[0]);
     longitude = double.parse(vals[1]);
@@ -123,5 +124,4 @@ class LocalLocation {
     longitude = data.longitude!;
     print("Updated location ${toString()}. location valid = $valid");
   }
-
 }

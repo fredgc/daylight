@@ -1,0 +1,19 @@
+{
+  "@@locale": "de",
+  "appTitle": "Daylight Lokale Sonnenzeit",
+  "clockFaceSemantics": "Daylight-Sonnenuhrzifferblatt",
+  "closeButtonLabel": "Schließen",
+  "dateTimeHint": "Datum/Uhrzeit",
+  "incrementSpeedHint": "Geschwindigkeit erhöhen",
+  "languageAuto": "Automatisch",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "Standort",
+  "privacyPolicyTitle": "Datenschutzerklärung",
+  "switchLanguageTooltip": "Sprache wechseln",
+  "termsOfServiceTitle": "Nutzungsbedingungen",
+  "transportTooltip": "Transport",
+  "unknownLocation": "Unbekannter Standort",
+  "viewPrivacyPolicyTooltip": "Datenschutzerklärung anzeigen",
+  "viewTermsTooltip": "Nutzungsbedingungen anzeigen"
+}

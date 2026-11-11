@@ -13,30 +13,4 @@
 ;; limitations under the License.
 
 ;; compiler commands:
-(setq local-command-list
-      '(
-        ;; If this fails, run
-        ;; flutter pub global activate devtools
-        ;; still supported?  ("*devtools*" "flutter pub global run devtools")
-        ;; ("*web-server*" "flutter run |& clean-ant")
-        ("*web-server*" "flutter run --verbose -d web-server --web-port 5000 |& clean-ant")
-        ;; ("*emulator*" "cd out; firebase -c ../firebase.json emulators:start")
-        ))
-
-(defun reload-web-server ()
-  (interactive)
-  (save-some-buffers)
-  (with-current-buffer "*web-server*"
-
-    (process-send-string "*web-server*" "r")
-    ))
-(global-set-key (kbd "H-.") 'reload-web-server)
-(global-set-key (kbd "s-.") 'reload-web-server)
-(global-set-key (kbd "C-M-.") 'reload-web-server)
-
-
-;; Consider this:
-(defun fix-case-statements ()
-  (interactive)
-  (c-set-offset 'case-label '+)
-  )
+(message "daylight run.el.");

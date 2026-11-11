@@ -1,0 +1,19 @@
+{
+  "@@locale": "es",
+  "appTitle": "Daylight - Hora solar local",
+  "clockFaceSemantics": "Esfera del reloj solar de luz diurna",
+  "closeButtonLabel": "Cerrar",
+  "dateTimeHint": "Fecha/Hora",
+  "incrementSpeedHint": "Velocidad de incremento",
+  "languageAuto": "Automático",
+  "languageEnglish": "English",
+  "languageSpanish": "Español",
+  "locationHint": "Ubicación",
+  "privacyPolicyTitle": "Política de privacidad",
+  "switchLanguageTooltip": "Cambiar idioma",
+  "termsOfServiceTitle": "Términos de servicio",
+  "transportTooltip": "Transportar",
+  "unknownLocation": "Ubicación desconocida",
+  "viewPrivacyPolicyTooltip": "Ver política de privacidad",
+  "viewTermsTooltip": "Ver términos de servicio"
+}
