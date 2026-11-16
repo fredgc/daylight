@@ -27,7 +27,7 @@ web/%.html: assets/%.html
 	cp -f $< $@
 
 build_all: $(ASSETS)
-	echo XXX flutter build apk
+	flutter build apk
 	flutter build web
 
 web/favicon.png: assets/icons/icon.png
@@ -59,9 +59,9 @@ stage-release: $(ASSETS) audit
 	firebase_stage.pl
 
 release: $(ASSETS) audit
-	./roll_build_number.sh --release
+	# roll_build_number.sh --release
 	make build_all
-	firebase deploy
+	firebase_release.pl
 
 
 # To add the configuration files, you first need to install firebase,
