@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get aboutTitle => '关于';
+
+  @override
   String get appTitle => 'Daylight 本地太阳时';
 
   @override
@@ -42,7 +45,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get switchLanguageTooltip => '切换语言';
 
   @override
+  String get switchThemeTooltip => '切换主题';
+
+  @override
   String get termsOfServiceTitle => '服务条款';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeLight => '浅色';
+
+  @override
+  String get themeSystem => '跟随系统';
 
   @override
   String get transportTooltip => '传输';

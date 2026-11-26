@@ -1,5 +1,6 @@
 {
   "@@locale": "pt",
+  "aboutTitle": "Sobre",
   "appTitle": "Daylight - Hora solar local",
   "clockFaceSemantics": "Mostrador do relógio solar Daylight",
   "closeButtonLabel": "Fechar",
@@ -11,7 +12,11 @@
   "locationHint": "Localização",
   "privacyPolicyTitle": "Política de Privacidade",
   "switchLanguageTooltip": "Alterar idioma",
+  "switchThemeTooltip": "Alterar tema",
   "termsOfServiceTitle": "Termos de Serviço",
+  "themeDark": "Escuro",
+  "themeLight": "Claro",
+  "themeSystem": "Sistema",
   "transportTooltip": "Transportar",
   "unknownLocation": "Localização desconhecida",
   "viewPrivacyPolicyTooltip": "Ver Política de Privacidade",

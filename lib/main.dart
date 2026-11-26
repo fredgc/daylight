@@ -20,6 +20,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'firebase_options.dart';
 import 'clock.dart';
 import 'l10n/l10n_extension.dart';
+import 'theme_controller.dart';
 import 'web_cache.dart';
 
 void main() async {
@@ -41,6 +42,7 @@ void main() async {
     );
   } catch (_) {}
   await LocaleController.initialize();
+  await ThemeController.initialize();
   runApp(const MyApp());
 }
 
@@ -52,26 +54,39 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder<Locale?>(
       valueListenable: LocaleController.currentLocale,
       builder: (context, locale, _) {
-        return MaterialApp(
-          locale: locale,
-          localeResolutionCallback: (deviceLocale, supportedLocales) {
-            if (deviceLocale != null) {
-              for (final supported in supportedLocales) {
-                if (supported.languageCode == deviceLocale.languageCode) {
-                  return supported;
+        return ValueListenableBuilder<ThemeMode>(
+          valueListenable: ThemeController.currentThemeMode,
+          builder: (context, themeMode, _) {
+            return MaterialApp(
+              locale: locale,
+              localeResolutionCallback: (deviceLocale, supportedLocales) {
+                if (deviceLocale != null) {
+                  for (final supported in supportedLocales) {
+                    if (supported.languageCode == deviceLocale.languageCode) {
+                      return supported;
+                    }
+                  }
                 }
-              }
-            }
-            return const Locale('en');
+                return const Locale('en');
+              },
+              onGenerateTitle: (context) => context.l10n.appTitle,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              darkTheme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: Colors.deepPurple,
+                  brightness: Brightness.dark,
+                ),
+                useMaterial3: true,
+              ),
+              themeMode: themeMode,
+              home: const LocalClock(),
+            );
           },
-          onGenerateTitle: (context) => context.l10n.appTitle,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const LocalClock(),
         );
       },
     );

@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get aboutTitle => 'About';
+
+  @override
   String get appTitle => 'Daylight Local Time';
 
   @override
@@ -42,7 +45,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get switchLanguageTooltip => 'Switch language';
 
   @override
+  String get switchThemeTooltip => 'Switch theme';
+
+  @override
   String get termsOfServiceTitle => 'Terms of Service';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeSystem => 'System';
 
   @override
   String get transportTooltip => 'Transport';

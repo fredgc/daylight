@@ -1,5 +1,6 @@
 {
   "@@locale": "lt",
+  "aboutTitle": "Apie",
   "appTitle": "Daylight vietinis saulės laikas",
   "clockFaceSemantics": "Daylight saulės laikrodžio ciferblatas",
   "closeButtonLabel": "Uždaryti",
@@ -11,7 +12,11 @@
   "locationHint": "Vieta",
   "privacyPolicyTitle": "Privatumo politika",
   "switchLanguageTooltip": "Keisti kalbą",
+  "switchThemeTooltip": "Keisti temą",
   "termsOfServiceTitle": "Paslaugų teikimo sąlygos",
+  "themeDark": "Tamsi",
+  "themeLight": "Šviesi",
+  "themeSystem": "Sistemos",
   "transportTooltip": "Perkelti",
   "unknownLocation": "Nežinoma vieta",
   "viewPrivacyPolicyTooltip": "Peržiūrėti privatumo politiką",

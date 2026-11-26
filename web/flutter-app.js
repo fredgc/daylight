@@ -29,7 +29,8 @@ class FlutterApp extends HTMLElement {
       </style>
     <iframe
         id="app-container"
-        src="clock.html">
+        src="clock.html"
+        allow="geolocation">
     </iframe>
         `;
     }
