@@ -14,6 +14,7 @@
 
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:location/location.dart';
 
 class LocalLocation {
@@ -27,56 +28,70 @@ class LocalLocation {
 
   // Initialize the location service.
   void init() async {
-    // print("Location init.");
     await refresh();
-    // print("End of init. location valid = $valid");
   }
 
   void dispose() async {
-    // print("XXX Disposing of listener $listener");
     await listener?.cancel();
-    // print("Finished disposing of listener $listener");
   }
 
   // Refresh the location from the service, if possible.
   // Also, turn on auto update.
   Future<void> refresh() async {
-    print("Refresh location.");
     auto_update = true;
 
     await listener?.cancel();
     location = Location();
-    listener = location.onLocationChanged.listen((LocationData data) {
-      print("Location updated via listener! data = $data");
-      update(data);
-    });
 
-    print("Checking service.");
-    bool serviceEnabled = await location.serviceEnabled();
-    if (!serviceEnabled) {
-      print("Service is not enabled. Requesting it.");
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) {
-        print("ERROR: service is still not enabled.");
+    try {
+      await location.changeSettings(accuracy: LocationAccuracy.low);
+    } catch (_) {}
+
+    // On web, location_web 6.0.1's hasPermission() passes a JSBoxedDartObject
+    // to navigator.permissions.query() which throws a TypeError. Calling
+    // getLocation() directly triggers the browser geolocation prompt.
+    if (!kIsWeb) {
+      try {
+        bool serviceEnabled = await location.serviceEnabled();
+        if (!serviceEnabled) {
+          serviceEnabled = await location.requestService();
+          if (!serviceEnabled) {
+            return;
+          }
+        }
+        PermissionStatus permission = await location.hasPermission();
+        if (permission == PermissionStatus.denied) {
+          permission = await location.requestPermission();
+          if (permission != PermissionStatus.granted &&
+              permission != PermissionStatus.grantedLimited) {
+            return;
+          }
+        }
+      } catch (e) {
+        debugPrint("Location permission/service check failed: $e");
         return;
       }
     }
-    print("Checking permission.");
-    PermissionStatus permission = await location.hasPermission();
-    if (permission == PermissionStatus.denied) {
-      print("Permission denied. Requesting permission.");
-      permission = await location.requestPermission();
-      if (permission != PermissionStatus.granted) {
-        print("Permission still denied! Giving up!");
-        return;
-      }
+
+    try {
+      LocationData data = await location.getLocation();
+      update(data);
+    } catch (e) {
+      debugPrint("getLocation failed: $e");
     }
-    print("Getting location.");
-    LocationData data = await location.getLocation();
-    valid = true;
-    print("Got location. updating, valid = $valid.");
-    update(data);
-    print("Finished update. valid = $valid.");
+
+    try {
+      listener = location.onLocationChanged.listen(
+        (LocationData data) {
+          update(data);
+        },
+        onError: (Object error) {
+          debugPrint("Location stream error: $error");
+        },
+      );
+    } catch (e) {
+      debugPrint("onLocationChanged failed: $e");
+    }
   }
 
   // Convert the location to a string, for display or debug.
@@ -111,17 +126,14 @@ class LocalLocation {
   }
 
   void update(LocationData data) {
-    print("update location data = $data");
     if (!auto_update) {
-      print("Auto-update disabled while debugging.");
       return;
     }
     if (data.latitude == null || data.longitude == null) {
-      print("Data had null values.");
       return;
     }
     latitude = data.latitude!;
     longitude = data.longitude!;
-    print("Updated location ${toString()}. location valid = $valid");
+    valid = true;
   }
 }

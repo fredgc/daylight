@@ -1,5 +1,6 @@
 {
   "@@locale": "es",
+  "aboutTitle": "Acerca de",
   "appTitle": "Daylight - Hora solar local",
   "clockFaceSemantics": "Esfera del reloj solar de luz diurna",
   "closeButtonLabel": "Cerrar",
@@ -11,7 +12,11 @@
   "locationHint": "Ubicación",
   "privacyPolicyTitle": "Política de privacidad",
   "switchLanguageTooltip": "Cambiar idioma",
+  "switchThemeTooltip": "Cambiar tema",
   "termsOfServiceTitle": "Términos de servicio",
+  "themeDark": "Oscuro",
+  "themeLight": "Claro",
+  "themeSystem": "Sistema",
   "transportTooltip": "Transportar",
   "unknownLocation": "Ubicación desconocida",
   "viewPrivacyPolicyTooltip": "Ver política de privacidad",

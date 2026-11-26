@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get aboutTitle => 'このアプリについて';
+
+  @override
   String get appTitle => 'Daylight 太陽時時計';
 
   @override
@@ -42,7 +45,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get switchLanguageTooltip => '言語を切り替える';
 
   @override
+  String get switchThemeTooltip => 'テーマを切り替える';
+
+  @override
   String get termsOfServiceTitle => '利用規約';
+
+  @override
+  String get themeDark => 'ダーク';
+
+  @override
+  String get themeLight => 'ライト';
+
+  @override
+  String get themeSystem => 'システム';
 
   @override
   String get transportTooltip => 'トランスポート';

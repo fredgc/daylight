@@ -1,5 +1,6 @@
 {
   "@@locale": "de",
+  "aboutTitle": "Über",
   "appTitle": "Daylight Lokale Sonnenzeit",
   "clockFaceSemantics": "Daylight-Sonnenuhrzifferblatt",
   "closeButtonLabel": "Schließen",
@@ -11,7 +12,11 @@
   "locationHint": "Standort",
   "privacyPolicyTitle": "Datenschutzerklärung",
   "switchLanguageTooltip": "Sprache wechseln",
+  "switchThemeTooltip": "Design wechseln",
   "termsOfServiceTitle": "Nutzungsbedingungen",
+  "themeDark": "Dunkel",
+  "themeLight": "Hell",
+  "themeSystem": "System",
   "transportTooltip": "Transport",
   "unknownLocation": "Unbekannter Standort",
   "viewPrivacyPolicyTooltip": "Datenschutzerklärung anzeigen",

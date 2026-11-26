@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
+  "aboutTitle": "About",
+  "@aboutTitle": {
+    "description": "Title for the About dialog and menu item"
+  },
   "appTitle": "Daylight Local Time",
   "@appTitle": {
     "description": "The title of the application displayed in the app bar and window title"
@@ -44,9 +48,25 @@
   "@switchLanguageTooltip": {
     "description": "Accessibility tooltip for the language selector menu button"
   },
+  "switchThemeTooltip": "Switch theme",
+  "@switchThemeTooltip": {
+    "description": "Accessibility tooltip for the theme mode selector menu button"
+  },
   "termsOfServiceTitle": "Terms of Service",
   "@termsOfServiceTitle": {
     "description": "Title for the Terms of Service dialog"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Label for dark theme mode"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Label for light theme mode"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "Label for system default theme mode"
   },
   "transportTooltip": "Transport",
   "@transportTooltip": {

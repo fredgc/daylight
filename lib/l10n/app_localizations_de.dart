@@ -9,6 +9,9 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get aboutTitle => 'Über';
+
+  @override
   String get appTitle => 'Daylight Lokale Sonnenzeit';
 
   @override
@@ -42,7 +45,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get switchLanguageTooltip => 'Sprache wechseln';
 
   @override
+  String get switchThemeTooltip => 'Design wechseln';
+
+  @override
   String get termsOfServiceTitle => 'Nutzungsbedingungen';
+
+  @override
+  String get themeDark => 'Dunkel';
+
+  @override
+  String get themeLight => 'Hell';
+
+  @override
+  String get themeSystem => 'System';
 
   @override
   String get transportTooltip => 'Transport';

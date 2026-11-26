@@ -1,5 +1,6 @@
 {
   "@@locale": "zh",
+  "aboutTitle": "关于",
   "appTitle": "Daylight 本地太阳时",
   "clockFaceSemantics": "Daylight 太阳表盘",
   "closeButtonLabel": "关闭",
@@ -11,7 +12,11 @@
   "locationHint": "位置",
   "privacyPolicyTitle": "隐私政策",
   "switchLanguageTooltip": "切换语言",
+  "switchThemeTooltip": "切换主题",
   "termsOfServiceTitle": "服务条款",
+  "themeDark": "深色",
+  "themeLight": "浅色",
+  "themeSystem": "跟随系统",
   "transportTooltip": "传输",
   "unknownLocation": "未知位置",
   "viewPrivacyPolicyTooltip": "查看隐私政策",

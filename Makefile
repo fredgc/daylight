@@ -1,3 +1,6 @@
+SHELL := /bin/bash
+
+PROJECT := $(notdir $(CURDIR))
 USER_DOCS_MD := $(wildcard doc/*.md)
 USER_DOCS_HTML := $(patsubst doc/%.md,assets/%.html,$(USER_DOCS_MD))
 
@@ -9,7 +12,33 @@ FIREBASE_FILES := lib/firebase_options.dart android/app/google-services.json fir
 
 ASSETS := web/favicon.png web/favicon.ico web/privacy.html web/terms.html web/privacy_es.html web/terms_es.html $(USER_DOCS_HTML) $(FIREBASE_FILES)
 
-.PHONY: docs build_all stage stage-release test release ASSETS audit
+.PHONY: web apk apk-release aab play-store-assets docs stage stage-release test release ASSETS audit
+
+web: $(ASSETS)
+	flutter build web
+
+apk: $(ASSETS)
+	flutter build apk
+
+apk-release: $(ASSETS)
+	flutter build apk --release
+
+aab: $(ASSETS)
+	@if [ -z "$$KEYSTORE_PW" ] && [ ! -f "$$HOME/.android/key.properties" ]; then \
+		read -rsp "Upload keystore password: " pw; echo ""; \
+		KEYSTORE_PW="$$pw" flutter build appbundle --release; \
+	else \
+		flutter build appbundle --release; \
+	fi
+	# The owner should be "CN=GC House, O=GC House, C=US".
+	keytool -printcert \
+		-jarfile build/app/outputs/bundle/release/app-release.aab \
+		| grep -E "Owner:|SHA1:|SHA256:"
+	cp build/app/outputs/bundle/release/app-release.aab ~/Downloads/$(PROJECT).aab
+
+play-store-assets: icon.xcf
+	mkdir -p play_store_images
+	icon-generate icon.xcf play_store_images
 
 docs: $(USER_DOCS_HTML) $(DEV_DOCS_HTML) web/privacy.html web/terms.html web/privacy_es.html web/terms_es.html
 
@@ -26,15 +55,11 @@ web/%.html: assets/%.html
 	cp -f assets/css/doc_style.css web/css/doc_style.css 2>/dev/null || true
 	cp -f $< $@
 
-build_all: $(ASSETS)
-	flutter build apk
-	flutter build web
-
 web/favicon.png: assets/icons/icon.png
-	convert $< -background transparent -colorspace RGB -filter Lanczos -resize 32x32 -colorspace sRGB $@
+	convert $< -background transparent -colorspace RGB -filter Lanczos -resize 32x32 -colorspace sRGB -strip -define png:exclude-chunk=date,time $@
 
 web/favicon.ico: assets/icons/icon.png
-	convert $< -define icon:auto-resize=64,48,32,16 -background transparent $@
+	convert $< -define icon:auto-resize=64,48,32,16 -background transparent -strip -define png:exclude-chunk=date,time $@
 	dart run flutter_launcher_icons
 
 assets/icons/icon.png assets/icons/foreground.png assets/icons/background.png: icon.xcf
@@ -59,8 +84,7 @@ stage-release: $(ASSETS) audit
 	firebase_stage.pl
 
 release: $(ASSETS) audit
-	# roll_build_number.sh --release
-	make build_all
+	make web
 	firebase_release.pl
 
 

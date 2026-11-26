@@ -9,6 +9,9 @@ class AppLocalizationsLt extends AppLocalizations {
   AppLocalizationsLt([String locale = 'lt']) : super(locale);
 
   @override
+  String get aboutTitle => 'Apie';
+
+  @override
   String get appTitle => 'Daylight vietinis saulės laikas';
 
   @override
@@ -42,7 +45,19 @@ class AppLocalizationsLt extends AppLocalizations {
   String get switchLanguageTooltip => 'Keisti kalbą';
 
   @override
+  String get switchThemeTooltip => 'Keisti temą';
+
+  @override
   String get termsOfServiceTitle => 'Paslaugų teikimo sąlygos';
+
+  @override
+  String get themeDark => 'Tamsi';
+
+  @override
+  String get themeLight => 'Šviesi';
+
+  @override
+  String get themeSystem => 'Sistemos';
 
   @override
   String get transportTooltip => 'Perkelti';

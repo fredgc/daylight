@@ -110,6 +110,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// Title for the About dialog and menu item
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get aboutTitle;
+
   /// The title of the application displayed in the app bar and window title
   ///
   /// In en, this message translates to:
@@ -176,11 +182,35 @@ abstract class AppLocalizations {
   /// **'Switch language'**
   String get switchLanguageTooltip;
 
+  /// Accessibility tooltip for the theme mode selector menu button
+  ///
+  /// In en, this message translates to:
+  /// **'Switch theme'**
+  String get switchThemeTooltip;
+
   /// Title for the Terms of Service dialog
   ///
   /// In en, this message translates to:
   /// **'Terms of Service'**
   String get termsOfServiceTitle;
+
+  /// Label for dark theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// Label for light theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// Label for system default theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
 
   /// Accessibility tooltip for the transport action button
   ///
